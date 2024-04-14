@@ -11,7 +11,6 @@ services:
     build:
       context: ./
       dockerfile: Dockerfile
-    command: ./start.sh
     depends_on:
       - task_db
     env_file:
