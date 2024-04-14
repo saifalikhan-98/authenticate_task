@@ -1,0 +1,34 @@
+version: "3.8"
+
+volumes:
+  app_data:
+    name: task
+
+services:
+  task_app:
+    image: task_app:development
+    container_name: task_app
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    command: ./start.sh
+    depends_on:
+      - task_db
+    env_file:
+      - .env
+    ports:
+      - 8000:8000
+
+  task_db:
+    image: postgres
+    container_name: task_db
+    volumes:
+      - app_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_DB: task_db
+
+networks:
+  default:
+    name: task_network

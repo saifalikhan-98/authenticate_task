@@ -1,0 +1,872 @@
+{
+	"info": {
+		"_postman_id": "450b27ad-497d-4aef-bd5c-99f670670a57",
+		"name": "Authenticate Task API",
+		"description": "API documentation for the Authenticate Task project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26373099",
+		"_collection_link": "https://speeding-water-831349.postman.co/workspace/Team-Workspace~e1c57d2d-df3b-49b3-8ee8-d2006d93463a/collection/26373099-450b27ad-497d-4aef-bd5c-99f670670a57?action=share&source=collection_link&creator=26373099"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Register User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"John Doe\",\n\t\"phoneNumber\": \"2234567895\",\n\t\"email\": \"john@example.com\",\n\t\"password\": \"Password1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}user/register/",
+							"host": [
+								"{{baseUrl}}user"
+							],
+							"path": [
+								"register",
+								""
+							]
+						},
+						"description": "This endpoint allows you to register a new user. When making a POST request to `{{baseUrl}}user/register/`, provide the following payload in the raw request body:\n\n``` json\n{\n    \"name\": \"\",\n    \"phoneNumber\": \"\",\n    \"email\": \"\",\n    \"password\": \"\"\n}\n\n ```\n\n### Response\n\n- Status: 201\n- Content-Type: application/json\n    \n\nThe response will include the registered user's information in JSON format, including the `name`, `email`, and `phoneNumber`.\n\nAdd documentation"
+					},
+					"response": [
+						{
+							"name": "Register User",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"John Doe\",\n\t\"phoneNumber\": \"2234567894\",\n\t\"email\": \"john@example.com\",\n\t\"password\": \"password123\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}user/register/",
+									"host": [
+										"{{baseUrl}}user"
+									],
+									"path": [
+										"register",
+										""
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "73"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"49-4h+yNs5AH/rCLDszguShyvLsfIg\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 13 Apr 2024 19:18:26 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"name\": \"John Doe\",\n    \"email\": \"john@example.com\",\n    \"phoneNumber\": \"2234567894\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Login User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"phoneNumber\": \"1234567891\",\n\t\"password\": \"password123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}user/login/",
+							"host": [
+								"{{baseUrl}}user"
+							],
+							"path": [
+								"login",
+								""
+							]
+						},
+						"description": "### User Login\n\nThis endpoint is used to authenticate a user by providing their phone number and password.\n\n**HTTP Request**  \n`POST {{baseUrl}}user/login/`\n\n**Parameters**\n\n- `phoneNumber` (string, required): The phone number of the user.\n- `password` (string, required): The password for the user account.\n    \n\n**Response**\n\n- Status: 200\n- Content-Type: application/json\n- `token` (string): A token to be used for further authentication and authorization."
+					},
+					"response": [
+						{
+							"name": "Login User",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"phoneNumber\": \"1234567891\",\n\t\"password\": \"password123\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}user/login/",
+									"host": [
+										"{{baseUrl}}user"
+									],
+									"path": [
+										"login",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "227"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"e3-9pO3p7bdCMph27UkcuskL1uVlcc\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 13 Apr 2024 19:18:33 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJJZCI6MiwibmFtZSI6IkpvaG4gRG9lIiwicGhvbmVOdW1iZXIiOiIxMjM0NTY3ODkxIn0sImlhdCI6MTcxMzAzNTkxMywiZXhwIjoxNzEzMDM5NTEzfQ.SRQsPhEMcMS4Q81iZ_H6HlHLG6CcW16WQx_78hqeR_Y\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Search User by Name",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer YOUR_JWT_TOKEN",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}user/search?query=John",
+							"host": [
+								"{{baseUrl}}user"
+							],
+							"path": [
+								"search"
+							],
+							"query": [
+								{
+									"key": "query",
+									"value": "John"
+								}
+							]
+						},
+						"description": "This endpoint allows users to search for a specific user by providing a query parameter. In the last execution, the request returned a 401 status with a JSON response containing an error message."
+					},
+					"response": [
+						{
+							"name": "Search User by Name",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer YOUR_JWT_TOKEN",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}user/search?query=John",
+									"host": [
+										"{{baseUrl}}user"
+									],
+									"path": [
+										"search"
+									],
+									"query": [
+										{
+											"key": "query",
+											"value": "John"
+										}
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "39"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"27-/X+fbRXZZeWI18AyOrPA/3PpLeY\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 13 Apr 2024 19:18:36 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Unauthorized: Invalid token\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Search User by Number",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer YOUR_JWT_TOKEN",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}user/search?query=1232312222",
+							"host": [
+								"{{baseUrl}}user"
+							],
+							"path": [
+								"search"
+							],
+							"query": [
+								{
+									"key": "query",
+									"value": "1232312222"
+								}
+							]
+						},
+						"description": "This endpoint allows you to search for a user by providing a query parameter. In the last execution, the request returned a 401 status with a JSON response containing an error message.\n\nTo use this endpoint, make a GET request to `{{baseUrl}}user/search?query=1232312222`.\n\nThe response will be in JSON format with an error message included."
+					},
+					"response": [
+						{
+							"name": "Search User by Number",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer YOUR_JWT_TOKEN",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}user/search?query=1232312222",
+									"host": [
+										"{{baseUrl}}user"
+									],
+									"path": [
+										"search"
+									],
+									"query": [
+										{
+											"key": "query",
+											"value": "1232312222"
+										}
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "39"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"27-/X+fbRXZZeWI18AyOrPA/3PpLeY\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 13 Apr 2024 19:08:50 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Unauthorized: Invalid token\"\n}"
+						}
+					]
+				}
+			],
+			"description": "Endpoints related to user management"
+		},
+		{
+			"name": "Spam",
+			"item": [
+				{
+					"name": "Mark spam",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"phoneNumber\": \"1234567890\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}spam",
+							"host": [
+								"{{baseUrl}}spam"
+							]
+						},
+						"description": "This endpoint allows you to submit a POST request to the {{baseUrl}}spam URL. The request should have a raw body with a JSON payload containing a \"phoneNumber\" field.\n\n### Request Body\n\n- `phoneNumber` (string, required): The phone number to be submitted for spam checking."
+					},
+					"response": [
+						{
+							"name": "Mark spam",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"phoneNumber\": \"1234567890\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}spam",
+									"host": [
+										"{{baseUrl}}spam"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "48"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"30-opuSOvLH5propUmk+Zeff8p+fy4\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 13 Apr 2024 19:26:08 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Number marked as spam successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get spam",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}spam?phoneNumber=1234567890",
+							"host": [
+								"{{baseUrl}}spam"
+							],
+							"query": [
+								{
+									"key": "phoneNumber",
+									"value": "1234567890"
+								}
+							]
+						},
+						"description": "This endpoint makes an HTTP GET request to the specified URL with the query parameter \"phoneNumber\" to check for spam related to the provided phone number. The response will be in JSON format with a \"spam\" field indicating whether the phone number is associated with spam.\n\n### Request\n\n- Method: GET\n- URL: {{baseUrl}}spam\n- Query Parameters:\n    - phoneNumber: The phone number to be checked for spam.\n\n### Response\n\n- Status: 200 OK\n- Content-Type: application/json\n- Body:\n    \n    ``` json\n    {\n        \"spam\": \"\"\n    }\n    \n     ```\n    \n\n#### Example Response\n\n``` json\n{\n    \"spam\": \"\"\n}\n\n ```"
+					},
+					"response": [
+						{
+							"name": "Get spam",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}spam?phoneNumber=1234567890",
+									"host": [
+										"{{baseUrl}}spam"
+									],
+									"query": [
+										{
+											"key": "phoneNumber",
+											"value": "1234567890"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "15"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"f-FIRG7KX73kCN2SUcvtQBOaSR7tY\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 13 Apr 2024 19:25:07 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"spam\": \"spam\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Contact",
+			"item": [
+				{
+					"name": "Create contact",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"John Doe\",\r\n    \"phoneNumber\": \"1234567891\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}contacts",
+							"host": [
+								"{{baseUrl}}contacts"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"John Doe\",\r\n    \"phoneNumber\": \"1234567899\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}contacts",
+									"host": [
+										"{{baseUrl}}contacts"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "142"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"8e-TVrF41xiFCWwUE+FPEF6TyGQxtA\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 13 Apr 2024 19:25:44 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"createdAt\": \"2024-04-13T19:25:44.331Z\",\n    \"updatedAt\": \"2024-04-13T19:25:44.332Z\",\n    \"id\": 7,\n    \"name\": \"John Doe\",\n    \"phoneNumber\": \"1234567899\",\n    \"UserId\": 2\n}"
+						}
+					]
+				},
+				{
+					"name": "Get contact",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"John Doe\",\r\n    \"phoneNumber\": \"1234567891\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}contacts",
+							"host": [
+								"{{baseUrl}}contacts"
+							]
+						},
+						"description": "This endpoint makes an HTTP GET request to retrieve a list of contacts from the server.\n\n### Request Parameters\n\n- `name` (string, optional): Filter contacts by name.\n- `phoneNumber` (string, optional): Filter contacts by phone number.\n    \n\n### Response\n\nUpon a successful execution, the server responds with a status code of 200 and a JSON array containing contact objects. Each contact object includes the following fields:\n\n- `id` (number): The unique identifier of the contact.\n- `name` (string): The name of the contact.\n- `phoneNumber` (string): The phone number of the contact.\n- `createdAt` (string): The timestamp indicating when the contact was created.\n- `updatedAt` (string): The timestamp indicating when the contact was last updated.\n- `UserId` (number): The unique identifier of the user associated with the contact.\n    \n\nNote: The actual values of the fields will be returned in the response but are masked here for privacy."
+					},
+					"response": [
+						{
+							"name": "Get contact",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"John Doe\",\r\n    \"phoneNumber\": \"1234567891\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}contacts",
+									"host": [
+										"{{baseUrl}}contacts"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "144"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"90-JkP7d82u9vON7WS4xRSiWw72ao4\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 13 Apr 2024 19:26:23 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 7,\n        \"name\": \"John Doe\",\n        \"phoneNumber\": \"1234567899\",\n        \"createdAt\": \"2024-04-13T19:25:44.331Z\",\n        \"updatedAt\": \"2024-04-13T19:25:44.332Z\",\n        \"UserId\": 2\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Search contact",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"John Doe\",\r\n    \"phoneNumber\": \"1234567891\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}contacts/search?query=John",
+							"host": [
+								"{{baseUrl}}contacts"
+							],
+							"path": [
+								"search"
+							],
+							"query": [
+								{
+									"key": "query",
+									"value": "John"
+								}
+							]
+						},
+						"description": "This endpoint makes an HTTP GET request to search for contacts based on the provided query parameter. In the last call, the request payload with raw request body type included the keys \"name\" and \"phoneNumber\" with empty values.\n\n### Request\n\n- Method: GET\n- Endpoint: {{baseUrl}}contacts/search\n- Query Parameters:\n    - query: John\n\n### Response\n\n- Status: 200\n- Content-Type: application/json\n- Body:\n    \n    ``` json\n      [{\"id\":0,\"name\":\"\",\"phoneNumber\":\"\",\"createdAt\":\"\",\"updatedAt\":\"\",\"UserId\":0}]\n    \n     ```\n    \n\n### Examples\n\n``` json\n[{\"id\":0,\"name\":\"\",\"phoneNumber\":\"\",\"createdAt\":\"\",\"updatedAt\":\"\",\"UserId\":0}]\n\n ```"
+					},
+					"response": [
+						{
+							"name": "Search contact",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"John Doe\",\r\n    \"phoneNumber\": \"1234567891\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}contacts/search?query=John",
+									"host": [
+										"{{baseUrl}}contacts"
+									],
+									"path": [
+										"search"
+									],
+									"query": [
+										{
+											"key": "query",
+											"value": "John"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "144"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"90-JkP7d82u9vON7WS4xRSiWw72ao4\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 13 Apr 2024 19:26:36 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 7,\n        \"name\": \"John Doe\",\n        \"phoneNumber\": \"1234567899\",\n        \"createdAt\": \"2024-04-13T19:25:44.331Z\",\n        \"updatedAt\": \"2024-04-13T19:25:44.332Z\",\n        \"UserId\": 2\n    }\n]"
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "value",
+				"value": "{{token}}",
+				"type": "string"
+			},
+			{
+				"key": "key",
+				"value": "Authorization",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://127.0.0.1:8000",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTcxMzAxMzUyOSwiZXhwIjoxNzEzMDE3MTI5fQ.nBUKK8jJjQoZw5qlPDofFm2Q4Jk92dJJO1FwTu0I44A",
+			"type": "string"
+		}
+	]
+}
