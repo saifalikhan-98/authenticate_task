@@ -1,3 +1,6 @@
+
+### Please note that I have not implemented user verification method of 2FA login only due to no free sms verification provider, but I have implemented a boilerplate code to handle user verification
+
 ### To setup the project
 ## run `yarn install`
 

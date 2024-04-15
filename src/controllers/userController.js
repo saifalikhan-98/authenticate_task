@@ -12,6 +12,8 @@ import { passwordValidator } from '../utils/passwordValidator.js'; // Import pas
 dotenv.config();
 // Controller for user-related operations
 export const UserController = {
+
+  // Please note that user registration can be leveraged with a method to add verification code , due to no free sms providers I dint do this implementation
   async register(req, res) {
     try {
       const { name, phoneNumber, email, password } = req.body;
@@ -47,6 +49,7 @@ export const UserController = {
     }
   },
 
+  // this method can be leveraged with check if user is verified and let user login
   async login(req, res) {
     try {
       const { phoneNumber, password } = req.body;
@@ -142,6 +145,25 @@ export const UserController = {
     } catch (error) {
       console.error(error);
       res.status(500).json({ error: 'Internal server error' });
+    }
+  },
+
+ // This method is an unimplemented feature that would validate user with OTP to check user authenticity
+
+  async matchVerificationCode(userId, verificationCode) {
+    try {
+      // Find the UserVerification entry associated with the user
+      const userVerification = await UserVerification.findOne({ where: { UserId: userId } });
+
+      if (!userVerification) {
+        return false; // No verification entry found
+      }
+
+      // Compare the provided verification code with the saved hashed code
+      return await bcrypt.compare(verificationCode, userVerification.verificationCode);
+    } catch (error) {
+      console.error(error);
+      throw new Error('Error matching verification code');
     }
   },
 };

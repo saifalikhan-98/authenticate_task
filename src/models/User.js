@@ -38,7 +38,12 @@ export const User = sequelize.define('User', {
     allowNull: false,
     defaultValue: DataTypes.NOW, // Set default value to current timestamp
     onUpdate: DataTypes.NOW // Update timestamp when record is updated
-  }
+  },
+  hasVerified: {
+    type: DataTypes.BOOLEAN,
+    allowNull: false,
+    defaultValue: false // Set default value to false
+  },
 });
 
 // Define associations with Contact model
