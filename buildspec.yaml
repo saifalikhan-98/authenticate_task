@@ -1,0 +1,6 @@
+# buidlspec.yaml
+
+build:
+  commands:
+    - yarn run build
+    - babel src -d build
