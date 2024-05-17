@@ -1,6 +1,30 @@
-# buidlspec.yaml
+version: 0.2
 
-build:
-  commands:
-    - yarn run build
-    - babel src -d build
+phases:
+  install:
+    runtime-versions:
+      nodejs: 14
+    commands:
+      - echo Installing dependencies...
+      - yarn install
+
+  build:
+    commands:
+      - echo Building the application...
+      - yarn build
+
+  post_build:
+    commands:
+      - echo Packaging the application...
+      - zip -r build.zip *
+      - echo Build complete
+
+artifacts:
+  files:
+    - build.zip
+  discard-paths: yes
+  base-directory: .  # Ensure the base directory is correct for your project
+
+cache:
+  paths:
+    - 'node_modules/**/*'
