@@ -7,8 +7,6 @@ env:
 
 phases:
   install:
-    runtime-versions:
-      nodejs: !Sub ${WITH_NODE_VERSION}.x
     commands:
       - echo Installing dependencies...
       - yarn install
