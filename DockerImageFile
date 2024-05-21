@@ -1,0 +1,11 @@
+FROM node:20.12.1
+
+# Install Node.js 22.0.0
+RUN apt-get update && \
+    apt-get install -y curl && \
+    curl -fsSL https://deb.nodesource.com/setup_22.x | bash - && \
+    apt-get install -y nodejs && \
+    npm install -g npm@latest
+
+# Set the working directory
+WORKDIR /usr/app
