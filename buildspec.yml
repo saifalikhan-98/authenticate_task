@@ -1,12 +1,9 @@
 version: 0.2
 
-env:
-  variables:
-    WITH_NODE_VERSION: "20.12.1"  # Default value; can be overridden by CodeBuild project configuration
-
-
 phases:
   install:
+    runtime-versions:
+      nodejs: 20.12.1
     commands:
       - echo Installing dependencies...
       - yarn install
